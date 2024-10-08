@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for(:title) || "Acelerar" %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= yield :head %>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
+    <!-- Carga de CSS -->
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag 'main', media: 'all', 'data-turbo-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Cargar el mapa de importación -->
+    <%= javascript_importmap_tags %>
+  </head>
+  <body>
+    <%= yield %>
+    <!-- Scripts -->
+    <%= javascript_include_tag("jquery.min.js") %>
+    <%= javascript_include_tag("breakpoints.min.js") %>
+    <%= javascript_include_tag("browser.min.js") %>
+    <%= javascript_include_tag("main.js") %>
+  </body>
+</html>
